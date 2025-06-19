@@ -1,0 +1,158 @@
+<!-- products.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>All Products - GlowEase</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-gray-800">
+  <header class="px-6 py-4 shadow-md flex justify-between items-center">
+    <h1 class="text-2xl font-bold text-teal-600">GlowEase</h1>
+    <a href="cart.html" class="text-xl">🛒</a>
+  </header>
+
+  <section class="px-6 py-10">
+    <h2 class="text-3xl font-semibold mb-6 text-center">All Products</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- Product Card -->
+      <div class="border rounded-lg p-4 hover:shadow-md transition">
+        <a href="product.html">
+          <img src="assets/images/product4.jpg" alt="Product" class="w-full h-48 object-cover rounded"/>
+          <h4 class="mt-2 font-medium">Vita</h4>
+          <p class="text-teal-600 font-bold">₹799</p>
+        </a>
+        <button 
+         class="add-to-cart mt-2 bg-teal-600 text-white w-full py-2 rounded hover:bg-teal-700"
+         data-id="1"
+         data-name="Vitamin a"
+         data-price="799"
+         data-image="assets/images/product4.jpg"
+         >
+         add to Cart
+        </button> 
+      </div>
+
+       <!-- product 2-->
+       <div class="border rounded-lg p-4 hover:shadow-md transition">
+        <a href="product.html">
+          <img src="assets/images/product6.jpg" alt="Vitamin b" class="w-full h-48 object-cover rounded"/>
+          <h4 class="mt-2 font-medium">Vitami</h4>
+          <p class="text-teal-600 font-bold">₹799</p>
+        </a>
+        <button 
+         class="add-to-cart mt-2 bg-teal-600 text-white w-full py-2 rounded hover:bg-teal-700"
+         data-id="2"
+         data-name="Vitamin b"
+         data-price="799"
+         data-image="assets/images/product6.jpg"
+         >
+         add to Cart
+        </button> 
+       </div>
+      
+       <!-- product 3-->
+       <div class="border rounded-lg p-4 hover:shadow-md transition">
+        <a href="product.html">
+          <img src="assets/images/product7.jpg" alt="Vitamin C" class="w-full h-48 object-cover rounded"/>
+          <h4 class="mt-2 font-medium">Vitamin</h4>
+          <p class="text-teal-600 font-bold">₹799</p>
+        </a>
+        <button 
+         class="add-to-cart mt-2 bg-teal-600 text-white w-full py-2 rounded hover:bg-teal-700"
+         data-id="3"
+         data-name="Vitamin C"
+         data-price="799"
+         data-image="assets/images/product7.jpg"
+         >
+         add to Cart
+        </button> 
+       </div>
+
+       <!-- product 4-->
+       <div class="border rounded-lg p-4 hover:shadow-md transition">
+        <a href="product.html">
+          <img src="assets/images/product8.jpg" alt="Vitamin d" class="w-full h-48 object-cover rounded"/>
+          <h4 class="mt-2 font-medium">Vitamin C</h4>
+          <p class="text-teal-600 font-bold">₹799</p>
+        </a>
+        <button 
+         class="add-to-cart mt-2 bg-teal-600 text-white w-full py-2 rounded hover:bg-teal-700"
+         data-id="4"
+         data-name="Vitamin d"
+         data-price="799"
+         data-image="assets/images/product8.jpg"
+         >
+         add to Cart
+        </button> 
+       </div>
+
+       <!-- product 5-->
+       <div class="border rounded-lg p-4 hover:shadow-md transition">
+        <a href="product.html">
+          <img src="assets/images/product9.jpg" alt="Vitamin e" class="w-full h-48 object-cover rounded"/>
+          <h4 class="mt-2 font-medium">Vitamin C Se</h4>
+          <p class="text-teal-600 font-bold">₹799</p>
+        </a>
+        <button 
+         class="add-to-cart mt-2 bg-teal-600 text-white w-full py-2 rounded hover:bg-teal-700"
+         data-id="5"
+         data-name="Vitamin e"
+         data-price="799"
+         data-image="assets/images/product9.jpg"
+         >
+         add to Cart
+        </button> 
+       </div>
+
+       <!-- product 6-->
+       <div class="border rounded-lg p-4 hover:shadow-md transition">
+        <a href="product.html">
+          <img src="assets/images/product10.jpg" alt="Vitamin j" class="w-full h-48 object-cover rounded"/>
+          <h4 class="mt-2 font-medium">Vitamin C Seru</h4>
+          <p class="text-teal-600 font-bold">₹799</p>
+        </a>
+        <button 
+         class="add-to-cart mt-2 bg-teal-600 text-white w-full py-2 rounded hover:bg-teal-700"
+         data-id="6"
+         data-name="Vitamin d"
+         data-price="799"
+         data-image="assets/images/product10.jpg"
+         >
+         add to Cart
+        </button> 
+       </div>
+
+    </div>
+  </section>
+  <script>
+  const buttons = document.querySelectorAll('.add-to-cart');
+
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      const product = {
+        id: button.dataset.id,
+        name: button.dataset.name,
+        price: button.dataset.price,
+        image: button.dataset.image,
+        qty: 1
+      };
+
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+      const existing = cart.find(p => p.id === product.id);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push(product);
+      }
+
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert(`${product.name} added to cart!`);
+    });
+  });
+</script>
+
+</body>
+</html>

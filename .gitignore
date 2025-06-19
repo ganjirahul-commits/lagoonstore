@@ -1,0 +1,9 @@
+# Ignore backend .env
+/backend/.env
+
+# Also ignore node_modules in backend
+/backend/node_modules/
+
+# General ignores
+.DS_Store
+Thumbs.db

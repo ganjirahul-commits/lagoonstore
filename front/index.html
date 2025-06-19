@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GlowEase - Skincare Store</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-white text-gray-800">
+    <!-- HEADER -->
+    <header class="flex items-center justify-between px-6 py-4 shadow-md">
+      <h1 class="text-2xl font-bold text-teal-600">GlowEase</h1>
+      <nav class="space-x-4 hidden md:block">
+        <a href="#" class="hover:text-teal-500">Home</a>
+        <a href="#" class="hover:text-teal-500">Products</a>
+        <a href="#" class="hover:text-teal-500">About</a>
+        <a href="#" class="hover:text-teal-500">Contact</a>
+      </nav>
+      <div class="text-xl">
+        🛒
+      </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="bg-teal-50 py-12 px-6 text-center">
+      <h2 class="text-4xl font-bold mb-4">Glow Naturally, Feel Beautiful</h2>
+      <p class="text-lg text-gray-600 mb-6">Skincare that loves you back.</p>
+      <button class="bg-teal-600 text-white px-6 py-3 rounded-full hover:bg-teal-700">
+        Shop Now
+      </button>
+    </section>
+
+    <!-- CATEGORIES -->
+    <section class="py-10 px-6">
+      <h3 class="text-2xl font-semibold text-center mb-6">Shop By Category</h3>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        <div class="bg-teal-100 p-4 rounded-lg">💄 Skincare</div>
+        <div class="bg-teal-100 p-4 rounded-lg">🧼 Face Tools</div>
+        <div class="bg-teal-100 p-4 rounded-lg">💋 Lips</div>
+        <div class="bg-teal-100 p-4 rounded-lg">🎁 Gifts</div>
+      </div>
+    </section>
+
+    <!-- FEATURED PRODUCTS -->
+    <section class="px-6 py-10">
+      <h3 class="text-2xl font-semibold text-center mb-6">Best Sellers</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Card 1 -->
+        <div class="border rounded-lg p-4 hover:shadow-md transition">
+          <img src="assets/images/product1.jpg" alt="Product 1" class="w-full h-48 object-cover rounded" />
+          <h4 class="mt-2 font-medium">rahul</h4>
+          <p class="text-teal-600 font-bold">₹799</p>
+          <button 
+            class="add-to-cart mt-2 bg-teal-600 text-white w-full py-2 rounded hover:bg-teal-700"
+            data-id="9"
+            data-name="rahul"
+            data-price="799"
+            data-image="assets/images/product1.jpg"
+          >
+            Add to Cart
+          </button>
+
+        </div>
+
+        <!-- Card 2 -->
+        <div class="border rounded-lg p-4 hover:shadow-md transition">
+          <img src="assets/images/product2.jpg" alt="Product 2" class="w-full h-48 object-cover rounded" />
+          <h4 class="mt-2 font-medium">Vitamin C Serum</h4>
+          <p class="text-teal-600 font-bold">₹799</p>
+          <button 
+            class="add-to-cart mt-2 bg-teal-600 text-white w-full py-2 rounded hover:bg-teal-700"
+            data-id="8"
+            data-name="Vitamin"
+            data-price="799"
+            data-image="assets/images/product2.jpg"
+          >
+            Add to Cart
+          </button>
+
+        </div>
+
+        <!-- Card 3 -->
+        <div class="border rounded-lg p-4 hover:shadow-md transition">
+          <img src="assets/images/product3.jpg" alt="Product 3" class="w-full h-48 object-cover rounded" />
+          <h4 class="mt-2 font-medium">ravali</h4>
+          <p class="text-teal-600 font-bold">₹799</p>
+          <button 
+            class="add-to-cart mt-2 bg-teal-600 text-white w-full py-2 rounded hover:bg-teal-700"
+            data-id="7"
+            data-name="ravali"
+            data-price="799"
+            data-image="assets/images/product3.jpg"
+          >
+            Add to Cart
+          </button>
+
+        </div>
+
+      </div>
+    </section>
+    
+    <!-- LINK TO PRODUCTS PAGE -->
+     <a href="products.html" class="text-teal-600 font-medium hover:underline text-center block mt-4">
+         View All Products →
+     </a>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-100 text-center py-6 mt-10">
+      <p class="text-sm text-gray-600">© 2025 GlowEase. All rights reserved.</p>
+    </footer>
+
+<script>
+  const buttons = document.querySelectorAll('.add-to-cart');
+
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      const product = {
+        id: button.dataset.id,
+        name: button.dataset.name,
+        price: button.dataset.price,
+        image: button.dataset.image,
+        qty: 1
+      };
+
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+      const existing = cart.find(p => p.id === product.id);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push(product);
+      }
+
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert(`${product.name} added to cart!`);
+    });
+  });
+</script>
+
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<!-- product.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vitamin C Serum - GlowEase</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-gray-800">
+  <header class="px-6 py-4 shadow-md flex justify-between items-center">
+    <h1 class="text-2xl font-bold text-teal-600">GlowEase</h1>
+    <a href="cart.html" class="text-xl">🛒</a>
+  </header>
+
+  <main class="px-6 py-10 grid grid-cols-1 md:grid-cols-2 gap-8">
+    <div>
+      <img src="front/assets/images/product1.jpg" alt="Vitamin" class="w-full h-96 object-cover rounded-lg" />
+    </div>
+    <div>
+      <h2 class="text-3xl font-bold mb-2">Vitamin C Brightening Serum</h2>
+      <p class="text-gray-600 mb-4">Achieve glowing, youthful skin with our top-rated Vitamin C formula. Enriched with natural ingredients.</p>
+      <p class="text-2xl font-bold text-teal-600 mb-4">₹799</p>
+      <label for="qty" class="block mb-2 font-medium">Quantity:</label>
+      <input type="number" id="qty" min="1" value="1" class="border p-2 mb-4 w-20 rounded" />
+      <button class="bg-teal-600 text-white px-6 py-2 rounded hover:bg-teal-700 w-full">Add to Cart</button>
+    </div>
+  </main>
+</body>
+</html>
